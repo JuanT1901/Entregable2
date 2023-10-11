@@ -33,7 +33,7 @@ function App() {
   
 
   return (
-    <main className={`${currentBg} font-["Lato"] flex justify-center items-center min-h-screen text-white`}>
+    <main className={`${currentBg} font-["Lato"] flex justify-center items-center min-h-screen text-white px-2`}>
       {weather === null ? (
         <Loader />
       ) : (

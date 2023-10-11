@@ -1,5 +1,4 @@
 .main {
-  background-image: url(/Rectangle.png);
   background-size: cover;
   display: grid;
   grid-template-columns: repeat(2, 1fr);

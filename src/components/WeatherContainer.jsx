@@ -20,7 +20,7 @@ const WeatherContainer = ({ weather }) => {
   }
 
   return (
-    <main className="min-h-screen grid">
+    <main className="min-h-screen grid flex justify-center">
       <span className="text-lg m-7">Weather app</span>
 
       <article className="relative text-[#026EED]">

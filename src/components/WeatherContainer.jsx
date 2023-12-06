@@ -1,9 +1,11 @@
+/* eslint-disable react/no-unknown-property */
 import { useState } from "react";
 import "./WeatherContainer.css";
 import WeatherStatus from "./WeatherStatus";
 
 const WeatherContainer = ({ weather }) => {
   const [isCelsius, setIsCelsius] = useState(true);
+  let weatherUrl
 
   const changeUnitTemp = (temp) => {
     if (isCelsius === true) {
@@ -19,8 +21,62 @@ const WeatherContainer = ({ weather }) => {
     setIsCelsius(!isCelsius);
   }
 
+  const weatherIcon = () => {
+    let weatherUrl 
+    weatherIcons.forEach(element => {
+      if (element.name === weather.weather[0].description) {
+        weatherUrl = element.url
+      }
+    });
+    return weatherUrl
+  }
+
+  
+  const weatherIcons = [
+    {
+      name: "snow",
+      url: "/snow.png"
+    },
+    {
+      name: "thunderstorm",
+      url: "/thunderstorm.png"
+    },
+    {
+      name: "rain",
+      url: "/rain.png" 
+    },
+    {
+      name: "shower rain",
+      url: "/shower_rain.png"
+    },
+    {
+      name: "broken clouds",
+      url: "/broken_clouds.png"
+    },
+    {
+      name: "scattered clouds",
+      url: "/scattered_clouds.png"
+    },
+    {
+      name: "few clouds",
+      url: "/few_clouds.png"
+    },
+    {
+      name: "clear sky",
+      url: "/clear_sky.png"
+    },
+    {
+      name: "mist",
+      url: "/mist.png"
+    },
+    {
+      name: "overcast clouds",
+      url: "/broken_clouds.png"
+    },
+  ]
+
   return (
-    <main className="min-h-screen grid flex justify-center">
+    <main className="min-h-screen grid ">
       <span className="text-lg m-7">Weather app</span>
 
       <article className="relative text-[#026EED]">
@@ -88,13 +144,13 @@ const WeatherContainer = ({ weather }) => {
             </defs>
           </svg>
         </picture>
-        <div className="absolute top-[35px] left-[10px] grid grid-cols-2 grid-rows-4 gap-x-[30px]">
+        <div className="absolute top-[35px] left-[10px] grid grid-cols-2 grid-rows-4 gap-x-[30px] pr-2 pl-1">
           <span className="temp text-[40px] flex items-end">
             {changeUnitTemp(weather.main.temp)}
           </span>
-          <picture className="image">
+          <picture className="image flex items-center justify-center">
             <img
-              src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`}
+              src={`${weatherIcon()}`}
               alt=""
             />
           </picture>

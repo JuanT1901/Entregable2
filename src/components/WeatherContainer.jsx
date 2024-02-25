@@ -65,7 +65,7 @@ const WeatherContainer = ({ weather, setTextInput }) => {
           <p className="desc--container flex items-center justify-center text-sm mr-1 font-semibold">
             {weather?.weather[0].description.toUpperCase()}
           </p>
-          <div className="data--container flex flex-col justify-end font-normal">
+          <div className="data--container flex flex-col justify-between font-normal py-3">
             <WeatherStatus
               property="VIENTO"
               unit="m/s"
